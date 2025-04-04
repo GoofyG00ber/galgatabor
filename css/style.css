@@ -1,0 +1,80 @@
+body {
+    background-color: white;
+    color: #333;
+}
+.navbar {
+    background-color: wheat !important;
+}
+.nav-link {
+    color: darkred !important;
+}
+.card {
+    border: 1px solid wheat;
+}
+footer {
+    background: darkred;
+    color: white;
+}
+.prof .card img {
+    height: 550px;
+    object-fit: cover;
+    object-position: top;
+}
+
+a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Smooth sliding transition for carousel items */
+.carousel-item {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Add fade effect on hover for carousel controls */
+.carousel-control-prev, .carousel-control-next {
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    opacity: 0.7;
+}
+
+/* Fixed height and width for the carousel */
+#carouselExampleIndicators {
+    width: 100%;        /* Full width of its container */
+    height: 500px;      /* Fixed height, adjust as needed */
+    overflow: hidden;   /* Hide overflow */
+}
+
+/* Ensure the carousel items take the full height */
+.carousel-inner {
+    height: 100%;
+}
+
+/* Make sure images cover the entire carousel area */
+.carousel-item img {
+    width: 100%;        /* Make the image fill the width */
+    height: 100%;       /* Make the image fill the height */
+    object-fit: cover;  /* Ensure the image covers the container */
+}
+
+.top-bar{
+    background-color: darkred !important;
+}
