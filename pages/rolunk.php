@@ -12,9 +12,9 @@
 <div class="row prof">
     <?php
     $team = [
-        ["name" => "Kiss Péter", "role" => "Táborvezető", "image" => "../public/profkep.jpg"],
-        ["name" => "Nagy Anna", "role" => "Programszervező", "image" => "../public/placeholder2.png"],
-        ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/placeholder2.png"],
+        ["name" => "Czanik Csanád", "role" => "Táborvezető", "image" => "../public/profkep.jpg"],
+        ["name" => "Tóth Loretta", "role" => "Programszervező", "image" => "../public/lotti_kep.jpg"],
+        ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/jazmin_kep.jpg"],
         ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/placeholder2.png"],
         ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/placeholder2.png"],
         ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/placeholder2.png"]

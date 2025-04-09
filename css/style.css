@@ -78,3 +78,20 @@ a:hover::after {
 .top-bar{
     background-color: darkred !important;
 }
+
+
+.application-form small{
+    
+    color: gray;
+    font-style: italic;
+}
+
+.botbar small{
+    
+    color: gray;
+}
+
+.botbar a{
+    
+    color: gray !important;
+}

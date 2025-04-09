@@ -34,18 +34,18 @@ include 'db.php';
 <nav class="navbar navbar-expand-lg navbar-light bg-wheat">
     <div class="container">
         <a class="navbar-brand" href="/galgatabor/index.php">
-            <img src="/assets/logo.png" alt="Logo" height="50"> Galgatábor
+            <img src="/galgatabor/public/logo1.png" alt="Főoldal" height="30">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/galgatabor/index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/galgatabor/index.php">Főoldal</a></li>
+                <li class="nav-item"><a class="nav-link" href="/galgatabor/camps/taboraink.php">Táboraink 2025</a></li>
+                <li class="nav-item"><a class="nav-link" href="/galgatabor/pages/gyik.php">Fontos tudnivalók</a></li>
                 <li class="nav-item"><a class="nav-link" href="/galgatabor/pages/rolunk.php">Rólunk</a></li>
                 <li class="nav-item"><a class="nav-link" href="/galgatabor/pages/kapcsolat.php">Kapcsolat</a></li>
-                <li class="nav-item"><a class="nav-link" href="/galgatabor/camps/taboraink.php">Táboraink 2025</a></li>
-                <li class="nav-item"><a class="nav-link" href="/galgatabor/pages/gyik.php">GYIK</a></li>
             </ul>
         </div>
     </div>
