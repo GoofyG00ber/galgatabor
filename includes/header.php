@@ -16,16 +16,16 @@ include 'db.php';
     <div class="container d-flex justify-content-between">
 <div>
     <img src="/galgatabor/public/call_icon.png" alt="Phone" style="height: 20px;">
-    <span>+36 1 234 5678</span>
+    <span><a href="tel:+36702613126">+36 70 261 3126</a></span>
     <span class="mx-3">|</span>
     <img src="/galgatabor/public/mail_icon.png" alt="Email" style="height: 20px;">
-    <span>info@galgatabor.hu</span>
+    <span><a href="mailto:info@galgatabor.hu">info@galgatabor.hu</a></span>
 </div>
 
 
         <div>
-            <a href="/galgatabor/login.php" class="text-light me-3" style="font-size: 0.85rem;">Bejelentkezés</a>
-            <a href="/galgatabor/register.php" class="text-light" style="font-size: 0.85rem;">Regisztráció</a>
+        <span id="date" class="text-light me-3" style="font-size: 0.85rem;"></span>
+            <img src="/galgatabor/public/facebook_logo.png" style="height: 0.85rem; opacity: 50%" alt="Facebook logó">
         </div>
     </div>
 </div>
@@ -52,3 +52,12 @@ include 'db.php';
 </nav>
 
 <div class="container mt-4">
+
+<script>
+    const months = ["január", "február", "március", "április", "május", "június",
+                    "július", "augusztus", "szeptember", "október", "november", "december"];
+
+    const today = new Date();
+    const formatted = today.getFullYear() + ". " + months[today.getMonth()] + " " + today.getDate() + ".";
+    document.getElementById("date").innerText = formatted;
+</script>

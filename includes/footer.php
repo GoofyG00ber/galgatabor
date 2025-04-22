@@ -13,18 +13,21 @@
                     <li><a href="/galgatabor/pages/privacy-policy.php" class="text-light">Adatvédelmi nyilatkozat</a></li>
                 </ul>
             </div>
+            
             <div class="col-md-3">
-                <h5>Kapcsolat</h5>
-                <p>Email: info@galgatabor.hu</p>
-                <p>Telefon: +36 30 123 4567</p>
+                <h5>Kövess minket!</h5>
+                <img src="/galgatabor/public/facebook_logo.png" style="height: 0.85rem; opacity: 50%" alt="Facebook logó">
             </div>
             <div class="col-md-3">
-                <h5>Google Maps</h5>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3813.0125269575037!2d19.05801858668922!3d47.48588040839365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc502488be69%3A0xc5b7e757fb438129!2sBudapesti%20Corvinus%20Egyetem!5e0!3m2!1shu!2shu!4v1743767793573!5m2!1shu!2shu" width="100%" height="150"></iframe>
+                <h5>Kapcsolat</h5>
+                <ul class="list-unstyled">
+                <li>Email: info@galgatabor.hu</li>
+                <li>Telefon: +36 30 123 4567</li>
+                </ul>
             </div>
             <div class="col-md-3">
                 <h5>Nyári munkát keresel?</h5>
-                <p><a href="/apply/apply.php" class="text-light">Jelentkezz itt!</a></p>
+                <p class="text-light">Jelentkezéseket várjuk az <a href="mailto:info@galgatabor.hu">info@galgatabor.hu</a> email címre!</p>
             </div>
         </div>
     </div>

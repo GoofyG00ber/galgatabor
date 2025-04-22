@@ -14,14 +14,12 @@
     $team = [
         ["name" => "Czanik Csanád", "role" => "Táborvezető", "image" => "../public/profkep.jpg"],
         ["name" => "Tóth Loretta", "role" => "Programszervező", "image" => "../public/lotti_kep.jpg"],
-        ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/jazmin_kep.jpg"],
-        ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/placeholder2.png"],
-        ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/placeholder2.png"],
-        ["name" => "Szabó László", "role" => "Oktató", "image" => "../public/placeholder2.png"]
+        ["name" => "Masznyik Jázmin", "role" => "Oktató", "image" => "../public/jazmin_kep.jpg"],
+        ["name" => "Hargitai Zalán", "role" => "Oktató", "image" => "../public/zalan_kep.jpg"],
     ];
     
     foreach ($team as $member) {
-        echo '<div class="col-md-4 mb-3">';
+        echo '<div class="col-md-3 mb-3">';
         echo '    <div class="card text-center team-card prof">';
         echo '        <img src="'.$member['image'].'" class="card-img-top" alt="'.$member['name'].'">';
         echo '        <div class="card-body">';
