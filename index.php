@@ -10,13 +10,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="public/placeholder.png" class="d-block w-100" alt="...">
+      <img src="public/banner1.png" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="public/placeholder2.png" class="d-block w-100" alt="...">
+      <img src="public/arduino_kids_laptop.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="public/placeholder2.png" class="d-block w-100" alt="...">
+      <img src="public/arduino_kep3.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -35,7 +35,7 @@
 
 
 
-<h1 class="text-center">Available Camps</h1>
+<h1 class="text-center mt-5">Táboraink 2025</h1>
 <div class="row">
     <?php
     $query = "SELECT * FROM camps";

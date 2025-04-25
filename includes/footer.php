@@ -22,7 +22,7 @@
                 <h5>Kapcsolat</h5>
                 <ul class="list-unstyled">
                 <li>Email: info@galgatabor.hu</li>
-                <li>Telefon: +36 30 123 4567</li>
+                <li>Telefon: +36 70 261 3126</li>
                 </ul>
             </div>
             <div class="col-md-3">

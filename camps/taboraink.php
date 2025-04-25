@@ -1,6 +1,5 @@
 <?php
 include '../includes/header.php';
-include '../includes/db.php';
 ?>
 <h2>Táboraink 2025</h2>
 <div class="row">

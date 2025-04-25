@@ -1,10 +1,14 @@
 <?php include '../includes/header.php'; ?>
-<h2>Rólunk</h2>
+
+<h2 class="mb-4">Rólunk</h2>
 
 <section class="mb-5">
     <h3>Táborunk története</h3>
     <p>
-        A Galgatábor több mint 10 éve szervez nyári táborokat gyermekek számára. Célunk, hogy felejthetetlen élményeket nyújtsunk a gyerekeknek, miközben biztonságos és barátságos környezetben tanulnak és szórakoznak.
+        Csapatunk tagjai több éves táboroztatási tapasztalattal rendelkeznek. 
+        Célunk egy olyan felejthetetlen élmény nyújtása a gyerekek számára,
+        amely továbbtanulásukban és később karrierjük választásában segíthet nekik.
+        
     </p>
 </section>
 
@@ -19,7 +23,7 @@
     ];
     
     foreach ($team as $member) {
-        echo '<div class="col-md-3 mb-3">';
+        echo '<div class="col-12 col-md-4 col-lg-3 mb-2">';
         echo '    <div class="card text-center team-card prof">';
         echo '        <img src="'.$member['image'].'" class="card-img-top" alt="'.$member['name'].'">';
         echo '        <div class="card-body">';

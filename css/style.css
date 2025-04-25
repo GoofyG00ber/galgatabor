@@ -15,11 +15,6 @@ footer {
     background: darkred;
     color: white;
 }
-.prof .card img {
-    height: 550px;
-    object-fit: cover;
-    object-position: top;
-}
 
 a {
     position: relative;
@@ -59,7 +54,7 @@ a:hover::after {
 /* Fixed height and width for the carousel */
 #carouselExampleIndicators {
     width: 100%;        /* Full width of its container */
-    height: 500px;      /* Fixed height, adjust as needed */
+    height: 100%;      /* Fixed height, adjust as needed */
     overflow: hidden;   /* Hide overflow */
 }
 
@@ -70,9 +65,9 @@ a:hover::after {
 
 /* Make sure images cover the entire carousel area */
 .carousel-item img {
-    width: 100%;        /* Make the image fill the width */
+    width: auto;        /* Make the image fill the width */
     height: 100%;       /* Make the image fill the height */
-    object-fit: cover;  /* Ensure the image covers the container */
+    object-fit:fill;  /* Ensure the image covers the container */
 }
 
 .top-bar{
@@ -94,4 +89,9 @@ a:hover::after {
 .botbar a{
     
     color: gray !important;
+}
+
+.card-img-top{
+    height: 450px;
+    object-fit: cover;
 }
