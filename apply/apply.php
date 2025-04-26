@@ -162,7 +162,7 @@ if (!$camp) {
     <div class="row mb-3">
         <div class="col-md-6">
             <label for="emergency_relationship_1" class="form-label">Kapcsolat a gyermekkel</label>
-            <input type="text" name="emergency_relationship_1" id="emergency_relationship_1" class="form-control" placeholder="Nagyszülő" required>
+            <input type="text" name="emergency_relationship_1" id="emergency_relationship_1" class="form-control" placeholder="Pl.: nagyszülő, nagybácsi, nagynéni, rokon" required>
             <small>(GDPR Art. 6(1)(d) - Vészhelyzeti azonosítás)</small>
         </div>
         <div class="col-md-6">
@@ -179,7 +179,7 @@ if (!$camp) {
     <div class="row mb-3">
         <div class="col-md-6">
             <label for="emergency_relationship_2" class="form-label">Kapcsolat a gyermekkel</label>
-            <input type="text" name="emergency_relationship_2" id="emergency_relationship_2" class="form-control" placeholder="Rokon" required>
+            <input type="text" name="emergency_relationship_2" id="emergency_relationship_2" class="form-control" placeholder="Pl.: nagyszülő, nagybácsi, nagynéni, rokon" required>
             <small>(GDPR Art. 6(1)(d) - Vészhelyzeti azonosítás)</small>
         </div>
         <div class="col-md-6">
@@ -246,8 +246,14 @@ if (!$camp) {
            <strong>Fizetendő összesen: <span id="total_price">50 000</span> Ft</strong></p>
     </div>
 
-    <!-- Submit -->
-    <button type="submit" class="btn btn-primary">Jelentkezés elküldése</button>
+    <!-- Submission Information -->
+<div class="mb-3">
+    <p><strong>Mi történik a jelentkezés leadása után?</strong><br>
+       A jelentkezés elküldését követően feldolgozzuk az adatait, és e-mailben küldünk egy proforma számlát a fizetési részletekkel. Kérjük, kövesse az e-mailben található utasításokat a fizetés teljesítéséhez.</p>
+</div>
+
+<!-- Submit -->
+<button type="submit" class="btn btn-primary">Jelentkezés leadása</button>
 </form>
 
 <script>

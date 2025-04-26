@@ -1,56 +1,71 @@
 <?php include 'includes/header.php'; ?>
 <link rel="stylesheet" href="css/style.css">
 
-
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="public/banner1.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="public/arduino_kids_laptop.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="public/arduino_kep3.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-
-
-
-
-
-<h1 class="text-center mt-5">Táboraink 2025</h1>
-<div class="row">
+<h2 class="text-center mb-4">Táboraink 2025</h2>
+<div class="container">
     <?php
-    $query = "SELECT * FROM camps";
-    $result = $conn->query($query);
-
-    while ($row = $result->fetch_assoc()): ?>
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $row['name']; ?></h5>
-                    <p class="card-text"><?= substr($row['description'], 0, 100); ?>...</p>
-                    <a href="/galgatabor/camps/camp.php?id=<?= $row['id']; ?>" class="btn btn-primary">View Camp</a>
+    $result = $conn->query("SELECT * FROM camps");
+    $index = 0;
+    while ($camp = $result->fetch_assoc()) {
+        $imageSide = ($index % 2 == 0) ? 'left' : 'right';
+        $textSide = ($index % 2 == 0) ? 'left' : 'right';
+        ?>
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 col-lg-10">
+                <div class="card shadow-sm border-0">
+                    <div class="row g-0 flex-column flex-md-row">
+                        <!-- Image -->
+                        <div class="col-md-6 order-md-<?php echo $imageSide == 'left' ? '1' : '2'; ?>">
+                            <img src="/galgatabor/public/<?php echo $camp['image']; ?>" class="img-fluid rounded" alt="<?php echo $camp['name']; ?>">
+                        </div>
+                        <!-- Text Content -->
+                        <div class="col-md-6 order-md-<?php echo $textSide == 'left' ? '1' : '2'; ?> d-flex align-items-center">
+                            <div class="card-body p-4">
+                                <!-- cim -->
+                                <h2 class="card-title mb-3"><?php echo $camp['name']; ?></h2>
+                                <!-- slogan -->
+                                <h5 class="card-title mb-3"><?php echo $camp['slogan']; ?></h5>
+                                <p class="card-text mb-2"><strong>Korosztály:</strong> <?php echo $camp['age_group']; ?></p>
+                                <p class="card-text mb-4"><?php echo substr($camp['description'], 0, 250); ?>...</p>
+                                <a href="/galgatabor/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-danger">Olvass tovább!</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    <?php endwhile; ?>
+        <?php
+        $index++;
+    }
+    ?>
 </div>
 <?php include 'includes/footer.php'; ?>
+
+<style>
+.card {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.card-img-top {
+    object-fit: cover;
+    height: 300px;
+}
+.card-body {
+    text-align: justify; /* Sorkizárt szöveg */
+}
+.card-text, .card-title {
+    text-align: left; /* Sorkizárt címek és szövegek */
+}
+@media (max-width: 767px) {
+    .card-body {
+        text-align: justify !important; /* Mobilon középre igazítás */
+    }
+    .card-text, .card-title {
+        text-align: left !important; /* Mobilon középre igazítás */
+    }
+    .card-img-top {
+        height: 250px;
+        border-radius: 0.25rem 0.25rem 0 0 !important;
+    }
+}
+</style>
