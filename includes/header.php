@@ -42,7 +42,6 @@ include 'db.php';
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="/galgatabor/index.php">Táboraink 2025</a></li>
-                <li class="nav-item"><a class="nav-link" href="/galgatabor/pages/gyik.php">Fontos tudnivalók</a></li>
                 <li class="nav-item"><a class="nav-link" href="/galgatabor/pages/rolunk.php">Rólunk</a></li>
                 <li class="nav-item"><a class="nav-link" href="/galgatabor/pages/kapcsolat.php">Kapcsolat</a></li>
             </ul>

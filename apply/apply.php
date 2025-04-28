@@ -1,8 +1,17 @@
 <?php
 include '../includes/header.php';
 
-$camp_id = $_GET['camp_id'] ?? 0;
-$query = "SELECT name FROM camps WHERE id = ?";
+// Összes tábor lekérdezése a választáshoz, beleértve az árakat
+$query = "SELECT id, name, date, date2, date3, location, location2, location3, price, meal_price FROM camps";
+$result = $conn->query($query);
+$camps = [];
+while ($row = $result->fetch_assoc()) {
+    $camps[] = $row;
+}
+
+// Alapértelmezett tábor kiválasztása, ha a camp_id meg van adva
+$camp_id = $_GET['camp_id'] ?? '';
+$query = "SELECT id, name, price, meal_price FROM camps WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $camp_id);
 $stmt->execute();
@@ -14,6 +23,10 @@ if (!$camp) {
     include '../includes/footer.php';
     exit;
 }
+
+// Alapértelmezett árak a kiválasztott tábor alapján
+$base_price = $camp['price']; // Alapértelmezett érték, ha nincs az adatbázisban
+$meal_price = $camp['meal_price']; // Alapértelmezett érték, ha nincs az adatbázisban
 ?>
 
 <style>
@@ -43,11 +56,87 @@ if (!$camp) {
     border-color: darkred;
     box-shadow: 0 0 0 0.2rem rgba(250, 34, 34, 0.13);
 }
+
+/* Táblázat stílusok */
+.table thead {
+    background-color: #8B0000; /* Sötétvörös háttér a címsornak */
+    color: #FFFFFF; /* Fehér szöveg a kontraszt miatt */
+}
+.table tbody {
+    background-color: #F8F9FA; /* Világosszürke háttér a tartalomnak */
+}
+.table-bordered th, .table-bordered td {
+    border: 1px solid #DEE2E6; /* Szegélyek egységesítése */
+}
+.table {
+    width: auto !important; /* A táblázat csak a tartalomhoz szükséges szélességet foglalja */
+    margin: 0 auto; /* Középre igazítás */
+}
 </style>
 
-<h1>Jelentkezés a(z) <?= htmlspecialchars($camp['name']); ?> táborba</h1>
+<h1>Jelentkezési lap</h1>
+
+<!-- Táborválasztó blokk -->
+<h3 class="mt-5">Táboraink</h3>
+
 <form action="process_application.php" method="POST" enctype="multipart/form-data" class="application-form">
-    <input type="hidden" name="camp_id" value="<?= htmlspecialchars($camp_id); ?>">
+
+<div class="table-responsive d-flex justify-content-center mb-4">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="table-dark">
+                <th>Tábor neve</th>
+                <th>Időpont</th>
+                <th>Helyszín</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($camps as $camp_row): ?>
+                <?php
+                $dates = array_filter([$camp_row['date'], $camp_row['date2'] ?? '', $camp_row['date3'] ?? ''], function($date) {
+                    return !empty($date);
+                });
+                $locations = array_filter([$camp_row['location'], $camp_row['location2'] ?? '', $camp_row['location3'] ?? ''], function($location) {
+                    return !empty($location);
+                });
+                $maxRows = max(count($dates), count($locations));
+                for ($i = 0; $i < $maxRows; $i++):
+                    $date = $dates[$i] ?? ($dates[0] ?? '');
+                    $location = $locations[$i] ?? ($locations[0] ?? '');
+                ?>
+                <tr>
+                    <td><?= htmlspecialchars($camp_row['name']); ?></td>
+                    <td><?= htmlspecialchars($date); ?></td>
+                    <td><?= htmlspecialchars($location); ?></td>
+                </tr>
+                <?php endfor; ?>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <label for="selected_camp_id" class="form-label"><strong>Válassz tábort:</strong></label>
+        <select name="selected_camp_id" id="selected_camp_id" class="form-select" onchange="updateCampDetails()" required>
+            <option value="">-- Válassz tábort --</option>
+            <?php foreach ($camps as $camp_row): ?>
+                <option value="<?= $camp_row['id']; ?>" <?= $camp_row['id'] == $camp_id ? 'selected' : ''; ?>>
+                    <?= htmlspecialchars($camp_row['name']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="selected_date" class="form-label"><strong>Válassz időpontot:</strong></label>
+        <select name="selected_date" id="selected_date" class="form-select" required>
+            <option value="">-- Előbb válassz tábort --</option>
+        </select>
+    </div>
+</div>
+
+<h1 id="camp_title">Jelentkezés a(z) <?= htmlspecialchars($camp['name']); ?> táborba</h1>
+    <input type="hidden" name="camp_id" id="camp_id_hidden" value="<?= htmlspecialchars($camp_id); ?>">
 
     <!-- Parent/Guardian Information -->
     <h3 class="mt-5">Szülő/Gondviselő adatai</h3>
@@ -148,7 +237,7 @@ if (!$camp) {
     <h3>Étkeztetés</h3>
     <div class="mb-3 form-check">
         <input type="checkbox" name="meal_option" id="meal_option" class="form-check-input" onchange="updateTotalPrice()">
-        <label for="meal_option" class="form-check-label">Igényelek napi egyszeri étkeztetést (ebéd), ára 6000 Ft.</label>
+        <label for="meal_option" class="form-check-label">Igényelek napi egyszeri étkeztetést (ebéd), ára <span id="meal_price_display"><?= number_format($meal_price, 0, ',', ' '); ?></span> Ft.</label>
         <small>(GDPR Art. 6(1)(b) - Szerződéses szolgáltatás)</small>
     </div>
 
@@ -241,22 +330,26 @@ if (!$camp) {
     <!-- Total Price -->
     <h3>Fizetendő összeg</h3>
     <div id="price_details">
-        <p>A tábor alapára: 50 000 Ft<br>
+        <p>A tábor alapára: <span id="base_price_display"><?= number_format($base_price, 0, ',', ' '); ?></span> Ft<br>
            Napi egyszeri étkeztetés: 0 Ft (nem igényelt)<br>
-           <strong>Fizetendő összesen: <span id="total_price">50 000</span> Ft</strong></p>
+           <strong>Fizetendő összesen: <span id="total_price"><?= number_format($base_price, 0, ',', ' '); ?></span> Ft</strong></p>
     </div>
 
     <!-- Submission Information -->
-<div class="mb-3">
-    <p><strong>Mi történik a jelentkezés leadása után?</strong><br>
-       A jelentkezés elküldését követően feldolgozzuk az adatait, és e-mailben küldünk egy proforma számlát a fizetési részletekkel. Kérjük, kövesse az e-mailben található utasításokat a fizetés teljesítéséhez.</p>
-</div>
+    <div class="mb-3">
+        <p><strong>Mi történik a jelentkezés leadása után?</strong><br>
+           A jelentkezés elküldését követően feldolgozzuk az adatait, és e-mailben küldünk egy proforma számlát a fizetési részletekkel. Kérjük, kövesse az e-mailben található utasításokat a fizetés teljesítéséhez.</p>
+    </div>
 
-<!-- Submit -->
-<button type="submit" class="btn btn-primary">Jelentkezés leadása</button>
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary">Jelentkezés leadása</button>
 </form>
 
 <script>
+// Alapértelmezett árak
+let BASE_PRICE = <?= json_encode($base_price); ?>;
+let MEAL_PRICE = <?= json_encode($meal_price); ?>;
+
 function toggleBillingFields() {
     const billingType = document.getElementById('billing_type').value;
     const individualFields = document.getElementById('billing_individual_fields');
@@ -314,22 +407,112 @@ function handleSameAsParent() {
 
 function updateTotalPrice() {
     const mealOption = document.getElementById('meal_option').checked;
-    const basePrice = 50000;
-    const mealPrice = 6000;
-    const totalPrice = mealOption ? basePrice + mealPrice : basePrice;
+    const totalPrice = mealOption ? BASE_PRICE + MEAL_PRICE : BASE_PRICE;
     const priceDetails = document.getElementById('price_details');
+    const mealPriceDisplay = document.getElementById('meal_price_display');
+    const basePriceDisplay = document.getElementById('base_price_display');
     
+    basePriceDisplay.textContent = BASE_PRICE.toLocaleString('hu-HU');
+    mealPriceDisplay.textContent = MEAL_PRICE.toLocaleString('hu-HU');
     priceDetails.innerHTML = `
-        <p>A tábor alapára: 50 000 Ft<br>
-           Napi egyszeri étkeztetés: ${mealOption ? '6 000 Ft' : '0 Ft (nem igényelt)'}<br>
+        <p>A tábor alapára: <span id="base_price_display">${BASE_PRICE.toLocaleString('hu-HU')}</span> Ft<br>
+           Napi egyszeri étkeztetés: ${mealOption ? `${MEAL_PRICE.toLocaleString('hu-HU')} Ft` : '0 Ft (nem igényelt)'}<br>
            <strong>Fizetendő összesen: <span id="total_price">${totalPrice.toLocaleString('hu-HU')}</span> Ft</strong></p>
     `;
 }
 
-// Initialize billing fields and price on page load
+function updateCampDetails() {
+    const selectedCampId = document.getElementById('selected_camp_id').value;
+    const campTitle = document.getElementById('camp_title');
+    const campIdHidden = document.getElementById('camp_id_hidden');
+    const dateSelect = document.getElementById('selected_date');
+
+    console.log("Selected Camp ID:", selectedCampId); // Hibakeresés
+
+    if (selectedCampId) {
+        // Tábor nevének frissítése
+        const selectedOption = document.querySelector(`#selected_camp_id option[value="${selectedCampId}"]`);
+        const campName = selectedOption.textContent.trim();
+        campTitle.textContent = `Jelentkezés a(z) ${campName} táborba`;
+        campIdHidden.value = selectedCampId;
+
+        // Tábor adatainak lekérése
+        const camps = <?php echo json_encode($camps); ?>;
+        const camp = camps.find(c => c.id == selectedCampId);
+        console.log("Found Camp:", camp); // Hibakeresés
+
+        if (camp) {
+            // Ár frissítése a kiválasztott tábor alapján
+            BASE_PRICE = camp.price || 50000; // Alapértelmezett ár, ha nincs megadva
+            MEAL_PRICE = camp.meal_price || 6000; // Alapértelmezett étkezési ár, ha nincs megadva
+
+            // Időpontválasztó engedélyezése és feltöltése
+            dateSelect.disabled = false;
+            dateSelect.innerHTML = '<option value="">-- Válassz időpontot --</option>';
+
+            const dates = [camp.date, camp.date2, camp.date3].filter(date => date && date.trim() !== '');
+            console.log("Available Dates:", dates); // Hibakeresés
+
+            if (dates.length > 0) {
+                dates.forEach(date => {
+                    const option = document.createElement('option');
+                    option.value = date; // Raw date string
+                    option.textContent = date; // A látható szöveg magyar formátumban
+                    dateSelect.appendChild(option);
+                    console.log("Added Option - Value:", option.value, "Text:", option.textContent); // Hibakeresés
+                });
+            } else {
+                console.error("No dates available for this camp!");
+                dateSelect.innerHTML = '<option value="">-- Nincs elérhető időpont --</option>';
+                dateSelect.disabled = true;
+                alert('Ehhez a táborhoz jelenleg nincs elérhető időpont. Kérjük, válassz másik tábort!');
+            }
+        } else {
+            console.error("Camp not found!");
+            dateSelect.disabled = true;
+            dateSelect.innerHTML = '<option value="">-- Nincs elérhető időpont --</option>';
+            alert('A kiválasztott tábor nem található. Kérjük, válassz újra!');
+            BASE_PRICE = 50000; // Visszaállítjuk az alapértelmezett árat
+            MEAL_PRICE = 6000; // Visszaállítjuk az alapértelmezett étkezési árat
+        }
+    } else {
+        campTitle.textContent = 'Jelentkezés táborainkba';
+        campIdHidden.value = '';
+        dateSelect.disabled = true;
+        dateSelect.innerHTML = '<option value="">-- Előbb válassz tábort --</option>';
+        BASE_PRICE = 50000; // Visszaállítjuk az alapértelmezett árat
+        MEAL_PRICE = 6000; // Visszaállítjuk az alapértelmezett étkezési árat
+    }
+
+    // Frissítjük az árat
+    updateTotalPrice();
+}
+
+// Űrlap elküldés előtti ellenőrzés
+document.querySelector('.application-form').addEventListener('submit', function(e) {
+    const selectedCampId = document.getElementById('selected_camp_id').value;
+    const selectedDate = document.getElementById('selected_date').value;
+
+    console.log("Form Submission - Camp ID:", selectedCampId, "Selected Date:", selectedDate); // Hibakeresés
+
+    if (!selectedCampId) {
+        e.preventDefault();
+        alert('Kérjük, válassz tábort!');
+        return false;
+    }
+
+    if (!selectedDate || selectedDate === '') {
+        e.preventDefault();
+        alert('Kérjük, válassz időpontot!');
+        return false;
+    }
+});
+
+// Eseménykezelők inicializálása
 document.addEventListener('DOMContentLoaded', function() {
     toggleBillingFields();
     updateTotalPrice();
+    updateCampDetails();
 });
 </script>
 

@@ -28,6 +28,7 @@
                                 <p class="card-text mb-2"><strong>Korosztály:</strong> <?php echo $camp['age_group']; ?></p>
                                 <p class="card-text mb-4"><?php echo substr($camp['description'], 0, 250); ?>...</p>
                                 <a href="/galgatabor/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-danger">Olvass tovább!</a>
+                                <a href="/galgatabor/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-outline-danger">Helyszínek</a>
                             </div>
                         </div>
                     </div>

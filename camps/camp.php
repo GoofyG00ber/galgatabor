@@ -22,7 +22,6 @@ function safeHtml($content) {
 }
 ?>
 
-
 <div class="container my-5">
     <!-- Main Section -->
     <div class="row mb-5">
@@ -35,26 +34,23 @@ function safeHtml($content) {
         </div>
     </div>
 
-<div class="row mb-5">
-    <div class="col-md-6">
+    <div class="row mb-5">
+        <div class="col-md-6">
             <ul class="list-group list-group-flush my-4">
                 <li class="list-group-item"><strong>Ajánlott korosztály:</strong> <?= htmlspecialchars($camp['age_group']); ?></li>
                 <li class="list-group-item"><strong>Tábor ára:</strong> <?= htmlspecialchars($camp['price']); ?> Ft</li>
                 <li class="list-group-item"><strong>Igényelhető étkeztetés ára:</strong> <?= htmlspecialchars($camp['meal_price']); ?> Ft</li>
             </ul>
-    </div>
-    <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
             <ul class="list-group list-group-flush my-4">
-                <li class="list-group-item"><strong>Előzetes tudás nem szükséges!</strong></li>
-                <li class="list-group-item"><strong></strong> <?= htmlspecialchars($camp['price']); ?> Ft</li>
-                <li class="list-group-item"><strong>Igényelhető étkeztetés ára:</strong> <?= htmlspecialchars($camp['meal_price']); ?> Ft</li>
             </ul>
+        </div>
     </div>
-</div>
-    <!-- terkep -->
+
+    <!-- Térkép -->
     <div class="row align-items-center my-5 flex-md-row-reverse">
         <div class="col-md-12">
-            
             <!-- Dates, Locations, Addresses, and Maps Table -->
             <?php
             $dates = array_filter([$camp['date'], $camp['date2'] ?? '', $camp['date3'] ?? ''], function($date) {
@@ -69,67 +65,54 @@ function safeHtml($content) {
             $iframes = array_filter([$camp['iframe'], $camp['iframe2'] ?? '', $camp['iframe3'] ?? ''], function($iframe) {
                 return !empty($iframe);
             });
-            $hasMultiple = count($dates) > 1 || count($locations) > 1 || count($addresses) > 1 || count($iframes) > 1;
 
-            if ($hasMultiple) {
-                echo '<h5 class="mb-3">Időpontok, Helyszínek:</h5>';
-                echo '<div class="table-responsive">';
-                echo '<table class="table table-bordered w-100">';
-                echo '<thead class=""><tr class="table-dark""><th>Időpont</th><th>Helyszín</th><th>Cím</th><th>Térkép</th></tr></thead>';
-                echo '<tbody class="">';
-                for ($i = 0; $i < max(count($dates), count($locations), count($addresses), count($iframes)); $i++) {
-                    $date = $dates[$i] ?? ($dates[0] ?? '');
-                    $location = $locations[$i] ?? ($locations[0] ?? '');
-                    $address = $addresses[$i] ?? ($addresses[0] ?? '');
-                    $iframe = $iframes[$i] ?? ($iframes[0] ?? '');
-                    echo '<tr>';
-                    echo '<td>' . htmlspecialchars($date) . '</td>';
-                    echo '<td>' . htmlspecialchars($location) . '</td>';
-                    echo '<td>' . htmlspecialchars($address) . '</td>';
-                    echo '<td>';
-                    if (!empty($iframe)) {
-                        echo '<a href="#" class="map-link" data-bs-toggle="modal" data-bs-target="#mapModal" data-iframe="' . htmlspecialchars($iframe) . '">Mutasd a térképen!</a>';
-                    } else {
-                        echo 'Nincs térkép';
-                    }
-                    echo '</td>';
-                    echo '</tr>';
+            // Mindig táblázatot használunk, akár egy, akár több tábor van
+            echo '<h5 class="mb-3">Időpontok, Helyszínek:</h5>';
+            echo '<div class="table-responsive d-flex justify-content-center">'; // Középre igazítás a táblázatnak
+            echo '<table class="table table-bordered">'; // w-100 eltávolítva, hogy a tábla csak a szükséges szélességet foglalja
+            echo '<thead><tr class="table-dark"><th>Időpont</th><th>Helyszín</th><th>Cím</th><th>Térkép</th></tr></thead>';
+            echo '<tbody>';
+            
+            // Ha nincs több időpont/helyszín, akkor az első elemet használjuk, különben iterálunk
+            $maxRows = max(count($dates), count($locations), count($addresses), count($iframes), 1); // Legalább egy sort mindig megjelenítünk
+            for ($i = 0; $i < $maxRows; $i++) {
+                $date = $dates[$i] ?? ($dates[0] ?? '');
+                $location = $locations[$i] ?? ($locations[0] ?? '');
+                $address = $addresses[$i] ?? ($addresses[0] ?? '');
+                $iframe = $iframes[$i] ?? ($iframes[0] ?? '');
+                echo '<tr>';
+                echo '<td>' . htmlspecialchars($date) . '</td>';
+                echo '<td>' . htmlspecialchars($location) . '</td>';
+                echo '<td>' . htmlspecialchars($address) . '</td>';
+                echo '<td>';
+                if (!empty($iframe)) {
+                    echo '<a href="#" class="map-link" data-bs-toggle="modal" data-bs-target="#mapModal" data-iframe="' . htmlspecialchars($iframe) . '">Mutasd a térképen!</a>';
+                } else {
+                    echo 'Nincs térkép';
                 }
-                echo '</tbody></table>';
-                echo '</div>';
-            } else {
-                echo '<ul class="list-group list-group-flush">';
-                echo '<li class="list-group-item"><strong>Időpont:</strong> ' . htmlspecialchars($camp['date']) . '</li>';
-                echo '<li class="list-group-item"><strong>Helyszín:</strong> ' . htmlspecialchars($camp['location']) . '</li>';
-                echo '<li class="list-group-item"><strong>Cím:</strong> ' . htmlspecialchars($camp['address']) . '</li>';
-                if (!empty($camp['iframe'])) {
-                    echo '<li class="list-group-item"><strong>Térkép:</strong> <a href="#" class="map-link" data-bs-toggle="modal" data-bs-target="#mapModal" data-iframe="' . htmlspecialchars($camp['iframe']) . '">Mutasd a térképen!</a></li>';
-                }
-                echo '</ul>';
+                echo '</td>';
+                echo '</tr>';
             }
+            echo '</tbody></table>';
+            echo '</div>';
             ?>
 
-            <a href="/galgatabor/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">Jelentkezés & Tábor Választás</a>
+            <a href="/galgatabor/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
         </div>
     </div>
 
+    <!-- Fontos tudnivalók -->
+    <?php if (!empty($camp['important_info'])): ?>
     <div class="row my-5">
-    <div class="col-12">
-        <div class="alert alert-warning shadow-sm" role="alert" style="background-color: wheat; color:darkred; border-color: #8B0000;">
-            <h4 class="alert-heading mb-3 text-darkred">Fontos tudnivalók</h4>
-            <p class="mb-3">Kérjük, figyelmesen olvassa el az alábbi információkat a táborral kapcsolatban:</p>
-            <ul class="fontos_lista mt-2 mb-2">
-                <li>A táborban való részvételhez saját laptop vagy tablet szükséges! Ezen kívűl minden más elektronikai felszerelést biztosítunk!</li>
-                <li>Hozz magaddal kényelmes ruházatot és váltócipőt!</li>
-                <li>Értéktárgyaidat tartsd biztonságos helyen.</li>
-                <li>Érkezz 15 perccel a tábor kezdete előtt.</li>
-                <li>Allergiáidat vagy speciális étrendi igényeidet jelezd előre!</li>
-                <li>Szükséges napvédő krém és kulacs minden napra.</li>
-                <li>Szükséges napvédő krém és kulacs minden napra.</li>
-            </ul>
+        <div class="col-12">
+            <div class="alert alert-warning shadow-sm" role="alert" style="background-color: wheat; color:darkred; border-color: #8B0000;">
+                <h4 class="alert-heading mb-3" style="color: darkred;">Fontos tudnivalók</h4>
+                <p class="mb-3">Kérjük, figyelmesen olvassa el az alábbi információkat a táborral kapcsolatban:</p>
+                <?= safeHtml($camp['important_info']); ?>
+            </div>
         </div>
     </div>
-</div>
+    <?php endif; ?>
 
     <!-- Content Block 1 -->
     <div class="row align-items-center my-5 flex-md-row-reverse">
@@ -161,6 +144,7 @@ function safeHtml($content) {
         </div>
     </div>
 </div>
+<a href="/galgatabor/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
 
 <!-- Bootstrap Modal for Map -->
 <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
@@ -199,25 +183,12 @@ document.addEventListener('DOMContentLoaded', function() {
 .table-responsive {
     width: 100%;
 }
-.table.w-100 {
-    width: 100% !important;
-}
-.map-link {
-    color: #007bff;
-    text-decoration: none;
-}
-.table-responsive {
-    width: 100%;
-}
-.table.w-100 {
-    width: 100% !important;
-}
 .map-link {
     color: #007bff;
     text-decoration: none;
 }
 .table thead {
-    background-color: #8B0000;/* Sötétvörös háttér a címsornak */
+    background-color: #8B0000; /* Sötétvörös háttér a címsornak */
     color: #FFFFFF; /* Fehér szöveg a kontraszt miatt */
 }
 .table tbody {
@@ -225,5 +196,18 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 .table-bordered th, .table-bordered td {
     border: 1px solid #DEE2E6; /* Szegélyek egységesítése */
+}
+.table {
+    width: auto !important; /* A táblázat csak a tartalomhoz szükséges szélességet foglalja */
+    margin: 0 auto; /* Középre igazítás */
+}
+.fontos_lista {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+.fontos_lista li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 </style>
