@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             error_log("Email sending failed: {$mail->ErrorInfo}");
         }
 
-        echo "<script>alert('Üzenet sikeresen elküldve! Dolgozunk kérdése feldolgozásán, amint tehetjük válaszolunk önnek.'); window.location.href = 'pages/kapcsolat.php';</script>";
+        echo "<script>alert('Üzenet sikeresen elküldve! Dolgozunk kérdése feldolgozásán, amint tehetjük válaszolunk önnek.'); window.location.href = '/pages/kapcsolat.php';</script>";
     } else {
         echo "<script>alert('Hiba történt, próbáld újra!'); window.history.back();</script>";
     }
