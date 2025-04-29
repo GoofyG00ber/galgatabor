@@ -36,7 +36,7 @@
                 <label for="message" class="form-label">Üzenet:</label>
                 <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Küldés</button>
+            <button type="submit" class="btn btn-primary mb-4">Küldés</button>
         </form>
     </div>
     <div class="col-md-6">

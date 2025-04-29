@@ -105,3 +105,33 @@ a:not(.btn):hover::after {
 .fontos_lista li{
     margin:20px;
 }
+
+@media (max-width: 576px) {
+    .top-bar .container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .top-bar .container > div {
+        display: flex;
+        flex-direction: column; /* Stack phone and email vertically */
+        margin-bottom: 10px; /* Add some spacing between sections */
+    }
+
+    .top-bar .container > div:last-child {
+        flex-direction: column; /* Stack date and Facebook logo vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .top-bar .container > div span {
+        margin-bottom: 5px; /* Add spacing between phone and email */
+    }
+
+    .top-bar .container > div img {
+        margin-bottom: 5px; /* Add spacing between date and Facebook logo */
+    }
+
+    .top-bar .mx-3 {
+        display: none; /* Hide the separator on small screens */
+    }
+}

@@ -26,7 +26,7 @@
                                 <!-- slogan -->
                                 <h5 class="card-title mb-3"><?php echo $camp['slogan']; ?></h5>
                                 <p class="card-text mb-2"><strong>Korosztály:</strong> <?php echo $camp['age_group']; ?></p>
-                                <p class="card-text mb-4"><?php echo substr($camp['description'], 0, 250); ?>...</p>
+                                <p class="card-text mb-4"><?php echo substr($camp['description'], 0, 245); ?>...</p>
                                 <a href="/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-danger">Olvass tovább!</a>
                                 <a href="/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-outline-danger">Helyszínek</a>
                             </div>
