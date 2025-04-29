@@ -407,13 +407,16 @@ function handleSameAsParent() {
 
 function updateTotalPrice() {
     const mealOption = document.getElementById('meal_option').checked;
-    const totalPrice = mealOption ? BASE_PRICE + MEAL_PRICE : BASE_PRICE;
+    const totalPrice = mealOption ? Number(BASE_PRICE) + Number(MEAL_PRICE) : Number(BASE_PRICE);
     const priceDetails = document.getElementById('price_details');
     const mealPriceDisplay = document.getElementById('meal_price_display');
     const basePriceDisplay = document.getElementById('base_price_display');
-    
+
+    // Update text content for base and meal price
     basePriceDisplay.textContent = BASE_PRICE.toLocaleString('hu-HU');
     mealPriceDisplay.textContent = MEAL_PRICE.toLocaleString('hu-HU');
+
+    // Update price details without redefining base_price_display span
     priceDetails.innerHTML = `
         <p>A tábor alapára: <span id="base_price_display">${BASE_PRICE.toLocaleString('hu-HU')}</span> Ft<br>
            Napi egyszeri étkeztetés: ${mealOption ? `${MEAL_PRICE.toLocaleString('hu-HU')} Ft` : '0 Ft (nem igényelt)'}<br>
