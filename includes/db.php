@@ -1,7 +1,7 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
+$host = "mysql.rackhost.hu;
+$user = "c64634tabor";
+$pass = "asdfasmc123";
 $dbname = "summer_camp";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
