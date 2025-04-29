@@ -16,7 +16,7 @@
 <div class="row prof">
     <?php
     $team = [
-        ["name" => "Czanik Csanád", "role" => "Táborvezető", "image" => "../public/profkep.jpg"],
+        ["name" => "Czanik Csanád", "role" => "Táborvezető", "image" => "../public/profkep.JPG"],
         ["name" => "Tóth Loretta", "role" => "Programszervező", "image" => "../public/lotti_kep.jpg"],
         ["name" => "Masznyik Jázmin", "role" => "Oktató", "image" => "../public/jazmin_kep.jpg"],
         ["name" => "Hargitai Zalán", "role" => "Oktató", "image" => "../public/zalan_kep.jpg"],
