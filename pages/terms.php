@@ -1,47 +1,47 @@
 <?php include '../includes/header.php'; ?>
 <div class="container my-5">
     <h1 class="text-center mb-4">Általános Szerződési Feltételek (ÁSZF)</h1>
-    <h2 class="text-center mb-5">Pályaorientációs Elektronika tábor Gyermektáborok</h2>
+    <h2 class="text-center mb-5">Galgatábor által szervezett Gyermektáborok</h2>
 
     <p><strong>Hatályos:</strong> 2025. április 7-től</p>
 
     <h3>1. Bevezetés</h3>
     <p>1.1. Jelen Általános Szerződési Feltételek (ÁSZF) a Pályaorientációs Elektronika tábor (továbbiakban: Szervező) által üzemeltetett összes gyermektáborra (továbbiakban: Táborok) vonatkoznak. Az alábbi táblázatban részletezzük az egyes táborokat:</p>
 
-    <!-- Camps Table -->
-    <div class="table-responsive mb-4">
-      <table class="table table-bordered">
-        <thead class="thead-light">
-          <tr>
-            <th>Tábor neve</th>
-            <th>Helyszín</th>
-            <th>Időtartam</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>[Tábor 1 Neve]</td>
-            <td>[Helyszín 1]</td>
-            <td>[Pl. 2025. július 1-5]</td>
-          </tr>
-          <tr>
-            <td>[Tábor 2 Neve]</td>
-            <td>[Helyszín 1]</td>
-            <td>[Pl. 2025. július 8-12]</td>
-          </tr>
-          <tr>
-            <td>[Tábor 3 Neve]</td>
-            <td>[Helyszín 2]</td>
-            <td>[Pl. 2025. július 15-19]</td>
-          </tr>
-          <tr>
-            <td>[Tábor 4 Neve]</td>
-            <td>[Helyszín 2]</td>
-            <td>[Pl. 2025. július 22-26]</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<!-- Camps Table -->
+<div class="table-responsive mb-4">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>Tábor neve</th>
+        <th>Helyszín</th>
+        <th>Időtartam</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kreatív Kézműves Tábor</td>
+        <td>Aszód, Petőfi Múzeum</td>
+        <td>2025. június 30. - 2025. július 4.</td>
+      </tr>
+      <tr>
+        <td>Pályaorientációs Elektronika Tábor</td>
+        <td>Aszód, Petőfi Múzeum</td>
+        <td>2025. július 14. - 2025. július 18.</td>
+      </tr>
+      <tr>
+        <td>Pályaorientációs Elektronika Tábor</td>
+        <td>Hatvan, Grassalkovich Művelődési Ház</td>
+        <td>2025. július 28. - 2025. augusztus 1.</td>
+      </tr>
+      <tr>
+        <td>Pályaorientációs Elektronika Tábor</td>
+        <td>Hatvan, Grassalkovich Művelődési Ház</td>
+        <td>2025. augusztus 11. - 2025. augusztus 15.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
     <p>1.2. A Szervező adatai:</p>
     <ul>
@@ -55,7 +55,7 @@
 
     <h3>2. A Táborok Leírása</h3>
     <p>2.1. A Táborok célja: Gyermekek számára szórakoztató és fejlesztő programok biztosítása biztonságos környezetben.</p>
-    <p>2.2. Célcsoport: 6-12 éves gyermekek.</p>
+    <p>2.2. Célcsoport: 7-14 éves gyermekek.</p>
     <p>2.3. A konkrét táborok helyszínei és időtartamai a fenti táblázatban találhatók.</p>
 
     <h3>3. Jelentkezés és Szerződéskötés</h3>
@@ -64,13 +64,13 @@
     <p>3.3. A Szervező emailben visszaigazolja a jelentkezést, amely tartalmazza a fizetési információkat.</p>
 
     <h3>4. Részvételi Díj és Fizetési Feltételek</h3>
-    <p>4.1. Az egyes Táborok részvételi díja: [Összeg] Ft/gyermek (táboronként azonos, eltérés esetén a jelentkezési oldalon jelezzük).</p>
-    <p>4.2. Fizetési módok: Banki átutalás vagy [egyéb módok].</p>
-    <p>4.3. Fizetési határidő: A jelentkezést követő 7 napon belül, de legkésőbb az adott tábor kezdete előtt [dátum].</p>
+    <p>4.1. Az egyes Táborok részvételi díja: 50.000 Ft/gyermek a Pályaorientációs Elektronika Táborok esetén és 38.000 Ft/gyermek a Kreatív Kézműves Tábor esetén.</p>
+    <p>4.2. Fizetési módok: Banki átutalás vagy külön kérésre készpénzben a tábor helyszínén, a tábor első napján.</p>
+    <p>4.3. Fizetési határidő: Banki átutalás esetén a jelentkezést követő 14 napon belül, de legkésőbb az adott tábor kezdete előtt [dátum]. Készpénzes fizetés esetén a tábor helyszínén, a tábor első napján.</p>
     <p>4.4. Lemondási feltételek (minden táborra azonos):</p>
     <ul>
-        <li>14 nappal az adott tábor kezdete előtt: 100% visszatérítés.</li>
-        <li>7-13 nappal a kezdés előtt: 50% visszatérítés.</li>
+        <li>30 nappal az adott tábor kezdete előtt: 100% visszatérítés.</li>
+        <li>14 nappal a kezdés előtt: 50% visszatérítés.</li>
         <li>7 napon belül: Nincs visszatérítés.</li>
     </ul>
     <p>4.5. A Szervező fenntartja a jogot, hogy bármely Tábort törölje, ha a minimális létszám (pl. 10 fő) nem teljesül, ebben az esetben a befizetett díjat teljes egészében visszatéríti.</p>
@@ -101,14 +101,14 @@
 
     <h3>10. Panaszkezelés és Jogvita</h3>
     <p>10.1. Panaszokat a Szervező emailben (info@galgatabor.hu) vagy telefonon (+36702613126) fogad, és 30 napon belül válaszol.</p>
-    <p>10.2. Jogvitákra a magyar jog és a [város] bíróságának illetékessége az irányadó.</p>
+    <p>10.2. Jogvitákra a magyar jog és a város bíróságának illetékessége az irányadó.</p>
 
     <h3>11. Záró Rendelkezések</h3>
     <p>11.1. Jelen ÁSZF 2025. április 7-től hatályos, és visszavonásig érvényes.</p>
     <p>11.2. A Szervező fenntartja a jogot az ÁSZF módosítására, amit a weboldalon közzétesz.</p>
 
     <div class="text-center mt-5">
-        <a href="/application.php" class="btn btn-primary">Vissza a jelentkezéshez</a>
+        <a href="/index.php" class="btn btn-primary">Vissza a jelentkezéshez</a>
     </div>
 </div>
 <?php include '../includes/footer.php'; ?>
