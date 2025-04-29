@@ -310,7 +310,7 @@ $meal_price = $camp['meal_price']; // Alapértelmezett érték, ha nincs az adat
     </div>
     <div class="mb-3 form-check">
         <input type="checkbox" name="aszf_acceptance" id="aszf_acceptance" class="form-check-input" required>
-        <label for="aszf_acceptance" class="form-check-label">Elfogadom az <a href="/galgatabor/aszf.pdf" target="_blank"><strong>Általános Szerződési Feltételeket (ÁSZF)</strong></a>.</label>
+        <label for="aszf_acceptance" class="form-check-label">Elfogadom az <a href="../aszf.pdf" target="_blank"><strong>Általános Szerződési Feltételeket (ÁSZF)</strong></a>.</label>
         <small>(GDPR Art. 6(1)(b) - Szerződés alapja)</small>
     </div>
     <div class="mb-3 form-check">

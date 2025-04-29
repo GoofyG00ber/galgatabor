@@ -16,7 +16,7 @@
                     <div class="row g-0 flex-column flex-md-row">
                         <!-- Image -->
                         <div class="col-md-6 order-md-<?php echo $imageSide == 'left' ? '1' : '2'; ?>">
-                            <img src="/galgatabor/public/<?php echo $camp['image']; ?>" class="img-fluid rounded" alt="<?php echo $camp['name']; ?>">
+                            <img src="/public/<?php echo $camp['image']; ?>" class="img-fluid rounded" alt="<?php echo $camp['name']; ?>">
                         </div>
                         <!-- Text Content -->
                         <div class="col-md-6 order-md-<?php echo $textSide == 'left' ? '1' : '2'; ?> d-flex align-items-center">
@@ -27,8 +27,8 @@
                                 <h5 class="card-title mb-3"><?php echo $camp['slogan']; ?></h5>
                                 <p class="card-text mb-2"><strong>Korosztály:</strong> <?php echo $camp['age_group']; ?></p>
                                 <p class="card-text mb-4"><?php echo substr($camp['description'], 0, 250); ?>...</p>
-                                <a href="/galgatabor/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-danger">Olvass tovább!</a>
-                                <a href="/galgatabor/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-outline-danger">Helyszínek</a>
+                                <a href="/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-danger">Olvass tovább!</a>
+                                <a href="/camps/camp.php?id=<?php echo $camp['id']; ?>" class="btn btn-outline-danger">Helyszínek</a>
                             </div>
                         </div>
                     </div>

@@ -26,7 +26,7 @@ function safeHtml($content) {
     <!-- Main Section -->
     <div class="row mb-5">
         <div class="col-md-6">
-            <img src="/galgatabor/public/<?= htmlspecialchars($camp['image']); ?>" alt="<?= htmlspecialchars($camp['name']); ?>" class="img-fluid rounded shadow camp-main-image">
+            <img src="/public/<?= htmlspecialchars($camp['image']); ?>" alt="<?= htmlspecialchars($camp['name']); ?>" class="img-fluid rounded shadow camp-main-image">
         </div>
         <div class="col-md-6">
             <h1 class="mb-4"><?= htmlspecialchars($camp['name']); ?></h1>
@@ -97,7 +97,7 @@ function safeHtml($content) {
             echo '</div>';
             ?>
 
-            <a href="/galgatabor/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
+            <a href="/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
         </div>
     </div>
 
@@ -117,7 +117,7 @@ function safeHtml($content) {
     <!-- Content Block 1 -->
     <div class="row align-items-center my-5 flex-md-row-reverse">
         <div class="col-md-6">
-            <img src="/galgatabor/public/<?= htmlspecialchars($camp['image2']); ?>" alt="Kép 2" class="img-fluid rounded shadow camp-secondary-image">
+            <img src="/public/<?= htmlspecialchars($camp['image2']); ?>" alt="Kép 2" class="img-fluid rounded shadow camp-secondary-image">
         </div>
         <div class="col-md-6">
             <div><?= safeHtml($camp['content2']); ?></div>
@@ -127,7 +127,7 @@ function safeHtml($content) {
     <!-- Content Block 2 -->
     <div class="row align-items-center my-5">
         <div class="col-md-6">
-            <img src="/galgatabor/public/<?= htmlspecialchars($camp['image3']); ?>" alt="Kép 3" class="img-fluid rounded shadow camp-secondary-image">
+            <img src="/public/<?= htmlspecialchars($camp['image3']); ?>" alt="Kép 3" class="img-fluid rounded shadow camp-secondary-image">
         </div>
         <div class="col-md-6">
             <div><?= safeHtml($camp['content3']); ?></div>
@@ -137,14 +137,14 @@ function safeHtml($content) {
     <!-- Content Block 3 -->
     <div class="row align-items-center my-5 flex-md-row-reverse">
         <div class="col-md-6">
-            <img src="/galgatabor/public/<?= htmlspecialchars($camp['image4']); ?>" alt="Kép 4" class="img-fluid rounded shadow camp-secondary-image">
+            <img src="/public/<?= htmlspecialchars($camp['image4']); ?>" alt="Kép 4" class="img-fluid rounded shadow camp-secondary-image">
         </div>
         <div class="col-md-6">
             <div><?= safeHtml($camp['content4']); ?></div>
         </div>
     </div>
 </div>
-<a href="/galgatabor/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
+<a href="/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
 
 <!-- Bootstrap Modal for Map -->
 <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">

@@ -212,7 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             error_log("Email sending failed: {$mail->ErrorInfo}");
         }
 
-        echo "<script>alert('Jelentkezés sikeresen leadva! Hamarosan e-mailben küldjük a proforma számlát a fizetési részletekkel.'); window.location.href = '/galgatabor/apply/apply.php?camp_id=$camp_id';</script>";
+        echo "<script>alert('Jelentkezés sikeresen leadva! Hamarosan e-mailben küldjük a proforma számlát a fizetési részletekkel.'); window.location.href = '/apply/apply.php?camp_id=$camp_id';</script>";
     } else {
         echo "<script>alert('Hiba történt, próbáld újra!'); window.history.back();</script>";
     }

@@ -5,18 +5,18 @@
             <div class="col-md-3">
                 <h5>Oldaltérkép</h5>
                 <ul class="list-unstyled">
-                    <li><a href="/galgatabor/index.php" class="text-light">Home</a></li>
-                    <li><a href="/galgatabor/pages/rolunk.php" class="text-light">Rólunk</a></li>
-                    <li><a href="/galgatabor/pages/kapcsolat.php" class="text-light">Kapcsolat</a></li>
-                    <li><a href="/galgatabor/camps/taboraink.php" class="text-light">Táboraink</a></li>
-                    <li><a href="/galgatabor/pages/terms.php" class="text-light">Felhasználási feltételek</a></li>
-                    <li><a href="/galgatabor/pages/privacy-policy.php" class="text-light">Adatvédelmi nyilatkozat</a></li>
+                    <li><a href="/index.php" class="text-light">Home</a></li>
+                    <li><a href="/pages/rolunk.php" class="text-light">Rólunk</a></li>
+                    <li><a href="/pages/kapcsolat.php" class="text-light">Kapcsolat</a></li>
+                    <li><a href="/camps/taboraink.php" class="text-light">Táboraink</a></li>
+                    <li><a href="/pages/terms.php" class="text-light">Felhasználási feltételek</a></li>
+                    <li><a href="/pages/privacy-policy.php" class="text-light">Adatvédelmi nyilatkozat</a></li>
                 </ul>
             </div>
             
             <div class="col-md-3">
                 <h5>Kövess minket!</h5>
-                <img src="/galgatabor/public/facebook_logo.png" style="height: 0.85rem; opacity: 50%" alt="Facebook logó">
+                <img src="/public/facebook_logo.png" style="height: 0.85rem; opacity: 50%" alt="Facebook logó">
             </div>
             <div class="col-md-3">
                 <h5>Kapcsolat</h5>
@@ -39,8 +39,8 @@
             <small>&copy; 2025 Czanik Csanád E.V.</small>
         </div>
         <div class="pe-3 pe-md-5">
-            <small><a href="/galgatabor/pages/terms.php" class="text-gray me-3">Felhasználási feltételek</a></small>
-            <small><a href="/galgatabor/pages/privacy-policy.php" class="text-gray">Adatvédelmi nyilatkozat</a></small>
+            <small><a href="/pages/terms.php" class="text-gray me-3">Felhasználási feltételek</a></small>
+            <small><a href="/pages/privacy-policy.php" class="text-gray">Adatvédelmi nyilatkozat</a></small>
         </div>
     </div>
 </div>
