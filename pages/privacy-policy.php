@@ -6,40 +6,40 @@
   <h3 class="text-xl font-semibold mt-6 mb-2">1. Bevezetés</h3>
   <p>Jelen Adatvédelmi Szabályzat a <strong>Pályaorientációs Elektronika tábor</strong> (továbbiakban: Adatkezelő) által üzemeltetett összes gyermektáborra vonatkozik. Az alábbi táblázatban részletezzük az egyes táborokat:</p>
 
-  <!-- Camps Table -->
-  <div class="overflow-x-auto mb-6">
-    <table class="w-full text-left border-collapse">
-      <thead>
-        <tr class="bg-gray-200">
-          <th class="p-2 border">Tábor neve</th>
-          <th class="p-2 border">Helyszín</th>
-          <th class="p-2 border">Időtartam</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="p-2 border">[Tábor 1 Neve]</td>
-          <td class="p-2 border">[Helyszín 1]</td>
-          <td class="p-2 border">[Pl. 2025. július 1-5]</td>
-        </tr>
-        <tr>
-          <td class="p-2 border">[Tábor 2 Neve]</td>
-          <td class="p-2 border">[Helyszín 1]</td>
-          <td class="p-2 border">[Pl. 2025. július 8-12]</td>
-        </tr>
-        <tr>
-          <td class="p-2 border">[Tábor 3 Neve]</td>
-          <td class="p-2 border">[Helyszín 2]</td>
-          <td class="p-2 border">[Pl. 2025. július 15-19]</td>
-        </tr>
-        <tr>
-          <td class="p-2 border">[Tábor 4 Neve]</td>
-          <td class="p-2 border">[Helyszín 2]</td>
-          <td class="p-2 border">[Pl. 2025. július 22-26]</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<!-- Camps Table -->
+<div class="table-responsive mb-4">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>Tábor neve</th>
+        <th>Helyszín</th>
+        <th>Időtartam</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kreatív Kézműves Tábor</td>
+        <td>Aszód, Petőfi Múzeum</td>
+        <td>2025. június 30. - 2025. július 4.</td>
+      </tr>
+      <tr>
+        <td>Pályaorientációs Elektronika Tábor</td>
+        <td>Aszód, Petőfi Múzeum</td>
+        <td>2025. július 14. - 2025. július 18.</td>
+      </tr>
+      <tr>
+        <td>Pályaorientációs Elektronika Tábor</td>
+        <td>Hatvan, Grassalkovich Művelődési Ház</td>
+        <td>2025. július 28. - 2025. augusztus 1.</td>
+      </tr>
+      <tr>
+        <td>Pályaorientációs Elektronika Tábor</td>
+        <td>Hatvan, Grassalkovich Művelődési Ház</td>
+        <td>2025. augusztus 11. - 2025. augusztus 15.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
   <p><strong>Az Adatkezelő adatai:</strong></p>
   <ul class="list-disc ml-6">
