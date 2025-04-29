@@ -40,7 +40,7 @@
         </form>
     </div>
     <div class="col-md-6">
-        <img src="/galgatabor/public/arduino_kids_laptop.jpg" alt="Gyerekek laptopon arduinot programoznak" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="public/arduino_kids_laptop.jpg" alt="Gyerekek laptopon arduinot programoznak" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 </div>
 
