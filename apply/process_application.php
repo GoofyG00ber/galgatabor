@@ -70,12 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'child_dob' => $child_dob,
         'child_id_number' => $child_id_number,
         'billing_type' => $billing_type,
-        'emergency_name_1' => $emergency_name_1,
-        'emergency_relationship_1' => $emergency_relationship_1,
-        'emergency_phone1' => $emergency_phone1,
-        'emergency_name_2' => $emergency_name_2,
-        'emergency_relationship_2' => $emergency_relationship_2,
-        'emergency_phone2' => $emergency_phone2,
     ];
 
     if ($billing_type === 'individual') {
