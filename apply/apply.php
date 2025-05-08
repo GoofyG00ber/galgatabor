@@ -251,29 +251,29 @@ $meal_price = $camp['meal_price']; // Alapértelmezett érték, ha nincs az adat
     <div class="row mb-3">
         <div class="col-md-6">
             <label for="emergency_relationship_1" class="form-label">Kapcsolat a gyermekkel</label>
-            <input type="text" name="emergency_relationship_1" id="emergency_relationship_1" class="form-control" placeholder="Pl.: nagyszülő, nagybácsi, nagynéni, rokon" >
+            <input type="text" name="emergency_relationship_1" id="emergency_relationship_1" class="form-control" placeholder="Pl.: nagyszülő, nagybácsi, nagynéni, rokon" value=" ">
             <small>(GDPR Art. 6(1)(d) - Vészhelyzeti azonosítás)</small>
         </div>
         <div class="col-md-6">
             <label for="emergency_phone1" class="form-label">1. Vészhelyzeti telefonszám</label>
-            <input type="tel" name="emergency_phone1" id="emergency_phone1" class="form-control" placeholder="+36 70 987 6543" >
+            <input type="tel" name="emergency_phone1" id="emergency_phone1" class="form-control" placeholder="+36 70 987 6543" value=" ">
             <small>(GDPR Art. 6(1)(d) - Gyors elérhetőség)</small>
         </div>
     </div>
     <div class="mb-3">
         <label for="emergency_name_2" class="form-label">Név</label>
-        <input type="text" name="emergency_name_2" id="emergency_name_2" class="form-control" placeholder="Tóth Anna" >
+        <input type="text" name="emergency_name_2" id="emergency_name_2" class="form-control" placeholder="Tóth Anna" value=" ">
         <small>(GDPR Art. 6(1)(d) - Létfontosságú érdek)</small>
     </div>
     <div class="row mb-3">
         <div class="col-md-6">
             <label for="emergency_relationship_2" class="form-label">Kapcsolat a gyermekkel</label>
-            <input type="text" name="emergency_relationship_2" id="emergency_relationship_2" class="form-control" placeholder="Pl.: nagyszülő, nagybácsi, nagynéni, rokon" >
+            <input type="text" name="emergency_relationship_2" id="emergency_relationship_2" class="form-control" placeholder="Pl.: nagyszülő, nagybácsi, nagynéni, rokon" value=" ">
             <small>(GDPR Art. 6(1)(d) - Vészhelyzeti azonosítás)</small>
         </div>
         <div class="col-md-6">
             <label for="emergency_phone2" class="form-label">2. Vészhelyzeti telefonszám</label>
-            <input type="tel" name="emergency_phone2" id="emergency_phone2" class="form-control" style="max-width: 300px;" placeholder="+36 20 456 7890" >
+            <input type="tel" name="emergency_phone2" id="emergency_phone2" class="form-control" style="max-width: 300px;" placeholder="+36 20 456 7890" value=" ">
             <small>(GDPR Art. 6(1)(d) - Tartalék elérhetőség)</small>
         </div>
     </div>
