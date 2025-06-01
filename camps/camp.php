@@ -96,8 +96,9 @@ function safeHtml($content) {
             echo '</tbody></table>';
             echo '</div>';
             ?>
-
-            <a href="/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
+            
+            <strong class="d-flex justify-content-center"   style="color:red"><h2>A Jelentkezés már nem lehetséges!</h2></strong>
+            <a href="/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center disabled" aria-disabled="true">📋 Jelentkezés & Tábor Választás ✍️</a>
         </div>
     </div>
 
@@ -144,7 +145,8 @@ function safeHtml($content) {
         </div>
     </div>
 </div>
-<a href="/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center">📋 Jelentkezés & Tábor Választás ✍️</a>
+<strong class="d-flex justify-content-center"   style="color:red"><h2>A Jelentkezés már nem lehetséges!</h2></strong>
+<a href="/apply/apply.php?camp_id=<?= $camp['id']; ?>" class="btn btn-success btn-lg mt-3 col-md-12 d-flex justify-content-center disabled" aria-disabled="true">📋 Jelentkezés & Tábor Választás ✍️</a>    
 
 <!-- Bootstrap Modal for Map -->
 <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
